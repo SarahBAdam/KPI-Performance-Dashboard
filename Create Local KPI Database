@@ -1,4 +1,4 @@
-create locally on SQLITE
+#Create locally on SQLITE
 
 CREATE TABLE business_metrics (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -9,10 +9,57 @@ CREATE TABLE business_metrics (
     customers INTEGER
 );
 
-Requirements:
+#SQLite Schema
+(
+CREATE TABLE business_metrics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT,
+    department TEXT,
+    revenue REAL,
+    expenses REAL,
+    customers INTEGER
+);
+
+#Sample Data
+INSERT INTO business_metrics (date, department, revenue, expenses, customers) VALUES
+('2024-01-01', 'Sales', 120000, 80000, 340),
+('2024-01-01', 'Operations', 60000, 45000, 0),
+('2024-02-01', 'Sales', 135000, 90000, 380),
+('2024-02-01', 'Operations', 65000, 47000, 0);
+
+#Execute Test
+(
+import sqlite3
+
+conn = sqlite3.connect('kpi.db')
+c = conn.cursor()
+
+# Create table
+c.execute("""
+CREATE TABLE IF NOT EXISTS business_metrics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT,
+    department TEXT,
+    revenue REAL,
+    expenses REAL,
+    customers INTEGER
+)
+""")
+
+# Insert sample data
+sample_data = [
+    ('2024-01-01', 'Sales', 120000, 80000, 340),
+    ('2024-01-01', 'Operations', 60000, 45000, 0),
+    ('2024-02-01', 'Sales', 135000, 90000, 380),
+    ('2024-02-01', 'Operations', 65000, 47000, 0)
+]
+
+c.executemany("INSERT INTO business_metrics (date, department, revenue, expenses, customers) VALUES (?,?,?,?,?)", sample_data)
+conn.commit()
+conn.close()
+)
+
+#Phyton Requirements:
 streamlit
 pandas
 sqlite3
-
-
-RE
