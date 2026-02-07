@@ -1,0 +1,37 @@
+
+Use Cases
+Business performance reviews
+
+Operational optimization
+
+Executive reporting
+""",
+
+"schema.sql": """
+CREATE TABLE business_metrics (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+date TEXT,
+department TEXT,
+revenue REAL,
+expenses REAL,
+customers INTEGER
+);
+""",
+
+"queries.sql": """
+-- Total revenue and profit by department
+SELECT department,
+SUM(revenue) AS total_revenue,
+SUM(expenses) AS total_expenses,
+SUM(revenue - expenses) AS profit
+FROM business_metrics
+GROUP BY department;
+
+-- Monthly performance trend
+SELECT date,
+SUM(revenue) AS revenue,
+SUM(expenses) AS expenses
+FROM business_metrics
+GROUP BY date
+ORDER BY date;
+""",
