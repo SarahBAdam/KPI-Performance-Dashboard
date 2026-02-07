@@ -1,5 +1,16 @@
 # KPI-Performance-Dashboard
 To provide leadership with real-time visibility into business performance metrics to enable data-driven decision-making.
+{
+Files needed in dashboard:
+│── README.md
+│── app.py
+│── schema.sql
+│── queries.sql
+│── BUSINESS_CASE.md
+│── requirements.txt
+}
+
+#business-kpi-dashboard/
 # Create full project structure with README, SQL schema, queries, and business case docs
 
 import os
