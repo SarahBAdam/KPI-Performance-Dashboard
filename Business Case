@@ -45,4 +45,4 @@ f.write(content.strip())
 str(base_path)
 Result
 '/mnt/data/business-kpi-dashboard'
-
+""",
