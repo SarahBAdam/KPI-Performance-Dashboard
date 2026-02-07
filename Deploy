@@ -1,2 +1,21 @@
 pip install streamlit pandas
 streamlit run app.py
+
+or 
+
+((Go to https://streamlit.io/cloud
+
+Sign in with GitHub
+
+Click New App
+
+Select:
+
+Repo: business-kpi-dashboard
+
+File: app.py
+
+Deploy
+))
+
+Deploy 🚀
