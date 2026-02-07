@@ -1,0 +1,14 @@
+import streamlit as st
+import pandas as pd
+from kpi_analysis import calculate_kpis
+
+st.title("Business KPI Dashboard")
+
+data = pd.read_csv("data/sample_business_data.csv")
+kpis = calculate_kpis(data)
+
+st.subheader("KPI Summary")
+st.dataframe(kpis)
+
+st.subheader("Profit by Department")
+st.bar_chart(kpis.set_index("department")["profit"])
