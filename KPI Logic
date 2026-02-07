@@ -1,0 +1,11 @@
+import pandas as pd
+
+def calculate_kpis(df):
+    df['profit'] = df['revenue'] - df['expenses']
+    summary = df.groupby('department').agg({
+        'revenue': 'sum',
+        'expenses': 'sum',
+        'profit': 'sum',
+        'customers': 'sum'
+    }).reset_index()
+    return summary
